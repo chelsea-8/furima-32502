@@ -56,7 +56,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :Street address
+- has_one :street_address
 
 
 
@@ -64,9 +64,6 @@
 
 | Column            | Type       | Options           |
 | --------          | ---------- | ----------------- |
-| expiration_date_m | string     | null: false       |    <!-- 有効期限 -->
-| expiration_date_y | string     | null: false       |    <!-- 有効期限 -->
-| security_code     | string     | null: false       |    
 | postal_code       | string     | null: false       |      <!-- 郵便番号 -->
 | prefecture_id     | integer    | null: false       |     <!-- 都道府県 -->
 | municipality      | string     | null: false       |     <!-- 市区町村 -->
