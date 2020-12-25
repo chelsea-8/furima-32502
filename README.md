@@ -4,14 +4,14 @@
 
 | Column             | Type   | Options      |
 | --------           | ------ | ----------   |
-| nike_name          | string | nill: false  |
-| email              | string | unique: true |
-| encrypted_password | string | nill: false  |
-| last_name          | string | nill: false  |
-| first_name         | string | nill: false  |
-| last_name_kana     | string | nill: false  |
-| first_name_kana    | string | nill: false  |
-| barth day          | date   | nill: false  |
+| nike_name          | string | null: false  |
+| email              | string |null: false, unique: true  |
+| encrypted_password | string | null: false  |
+| last_name          | string | null: false  |
+| first_name         | string | null: false  |
+| last_name_kana     | string | null: false  |
+| first_name_kana    | string | null: false  |
+| barth_day          | date   | null: false  |
 
 ### Association 
 
@@ -22,15 +22,18 @@
 
 | Column              | Type    | Options     |
 | --------            | ------  | ----------  |
-| picture             | string  | nill: false |
-| product_name        | string  | nill: false |   <!-- 商品名 -->
-| product_description | string  | nill: false |    <!-- 商品説明 -->
-| category_id         | integer | nill: false |
-| condition_id        | integer | nill: false |
-| shipping_charges_id | integer | nill: false |　　<!-- 配送料 -->
-| shipping_area_id    | integer | nill: false |
-| days_to_ship_id     | integer | nill: false |
-| price               | string  | nill: false |
+| picture             | string  | null: false |
+| product_name        | string  | null: false |   <!-- 商品名 -->
+| product_description | text    | null: false |    <!-- 商品説明 -->
+| category_id         | integer | null: false |
+| condition_id        | integer | null: false |
+| shipping_charge_id | integer | null: false |　　<!-- 配送料 -->
+| shipping_area_id    | integer | null: false |
+| days_to_ship_id     | integer | null: false |
+| price               | integer  | null: false |
+| user | references | null: false, foreign_key: true |
+
+
 
 
 
@@ -46,30 +49,31 @@
 
 | Column     | Type       | Options           |
 | --------   | ---------- | ----------------- |
-| item       | text       | nill: false       |
-| name       | references | foreign_key: true |
-
+| item | references | null: false, foreign_key: true |
+| user | references | null: false, foreign_key: true |
 
 ### Association 
 
 - belongs_to :user
 - belongs_to :item
+- has_one :Street address
+
 
 
 ## Street address テーブル
 
 | Column            | Type       | Options           |
 | --------          | ---------- | ----------------- |
-| card_information  | string     | nill: false       |
-| expiration_date_m | string     | nill: false       |    <!-- 有効期限 -->
-| expiration_date_y | string     | nill: false       |    <!-- 有効期限 -->
-| security_code     | string     | nill: false       |    
-| postal_code       | string     | nill: false       |      <!-- 郵便番号 -->
-| prefectures       | integer    | nill: false       |     <!-- 都道府県 -->
-| municipality      | string     | nill: false       |     <!-- 市区町村 -->
-| address           | string     | nill: false       |   <!-- 番地 -->
-| Building_name     | string     | nill: false       |     <!-- 建物名 -->
+| expiration_date_m | string     | null: false       |    <!-- 有効期限 -->
+| expiration_date_y | string     | null: false       |    <!-- 有効期限 -->
+| security_code     | string     | null: false       |    
+| postal_code       | string     | null: false       |      <!-- 郵便番号 -->
+| prefecture_id     | integer    | null: false       |     <!-- 都道府県 -->
+| municipality      | string     | null: false       |     <!-- 市区町村 -->
+| address           | string     | null: false       |   <!-- 番地 -->
+| building_name     | string     | not: null         |     <!-- 建物名 -->
 | phone_number      | string     | nill: false       |
+| order             | references | null: false, foreign_key: true |
 ### Association 
 
-- belongs_one :oder
+- belongs_to :oder
