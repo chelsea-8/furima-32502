@@ -22,7 +22,6 @@
 
 | Column              | Type    | Options     |
 | --------            | ------  | ----------  |
-| picture             | string  | null: false |
 | product_name        | string  | null: false |   <!-- 商品名 -->
 | product_description | text    | null: false |    <!-- 商品説明 -->
 | category_id         | integer | null: false |
