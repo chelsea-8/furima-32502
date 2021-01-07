@@ -104,6 +104,25 @@ describe '商品出品機能' do
       @item.valid?
       expect(@item.errors.full_messages).to include("User must exist")
     end
+
+    it '全角文字では登録できない' do
+      @item.price = '３００'
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not included in the list")
+    end
+
+    it '半角英数混合では登録できないこと' do
+      @item.price = '/\A[a-z0-9]+\z/'
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not included in the list")
+    end
+
+    it '半角英語だけでは登録できないこと' do
+      @item.price = '/\A[a-z]+\z/'
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not included in the list")
+    end
+
   end
 end
 end
