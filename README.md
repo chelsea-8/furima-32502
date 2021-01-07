@@ -26,10 +26,10 @@
 | product_description | text    | null: false |    <!-- 商品説明 -->
 | category_id         | integer | null: false |
 | condition_id        | integer | null: false |
-| shipping_charge_id | integer | null: false |　　<!-- 配送料 -->
-| prefecture_id      | integer | null: false |
+| shipping_charge_id  | integer | null: false |　　<!-- 配送料 -->
+| prefecture_id       | integer | null: false |    <!-- 県 -->
 | days_to_ship_id     | integer | null: false |
-| price               | integer  | null: false |
+| price               | integer | null: false |
 | user | references | null: false, foreign_key: true |
 
 
