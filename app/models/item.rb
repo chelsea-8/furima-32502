@@ -18,4 +18,7 @@ class Item < ApplicationRecord
   validates :shipping_charge_id
   validates :days_to_ship_id
   end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :shipping_charge
 end
