@@ -7,4 +7,7 @@ class ShippingCharge < ActiveHash::Base
   ]
   include ActiveHash::Associations
   belongs_to :order
+
+  include ActiveHash::Associations
+  has_many :items
 end
