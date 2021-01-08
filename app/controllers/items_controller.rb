@@ -10,6 +10,11 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
+
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -19,7 +24,6 @@ class ItemsController < ApplicationController
     end
   end
 
- 
   private
   def item_params
     params.require(:item).permit(:product_name,:product_description,:category_id,:condition_id,:shipping_charge_id,
@@ -27,4 +31,6 @@ class ItemsController < ApplicationController
     
 
   end
+
+
 end
